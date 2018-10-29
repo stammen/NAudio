@@ -78,6 +78,7 @@ namespace NAudioUniversalDemo
             if (recorder == null)
             {
                 recorder = new WasapiCaptureRT();
+                recorder.WaveFormat = new WaveFormat(16000, 16, 1);
                 recorder.RecordingStopped += RecorderOnRecordingStopped;
                 recorder.DataAvailable += RecorderOnDataAvailable;               
             }
@@ -98,6 +99,7 @@ namespace NAudioUniversalDemo
 
         private async void RecorderOnDataAvailable(object sender, WaveInEventArgs waveInEventArgs)
         {
+            var format = recorder.WaveFormat;
             if (reader == null)
             {
                 recordStream = new MemoryStream();

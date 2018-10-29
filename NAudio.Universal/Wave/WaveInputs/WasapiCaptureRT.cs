@@ -155,7 +155,7 @@ namespace NAudio.Wave
 
             if (!audioClient.IsFormatSupported(AudioClientShareMode.Shared, waveFormat))
             {
-                throw new ArgumentException("Unsupported Wave Format");
+                //throw new ArgumentException("Unsupported Wave Format");
             }
             
             var streamFlags = GetAudioClientStreamFlags();
@@ -181,7 +181,7 @@ namespace NAudio.Wave
         /// </summary>
         protected virtual AudioClientStreamFlags GetAudioClientStreamFlags()
         {
-            return AudioClientStreamFlags.EventCallback;
+            return AudioClientStreamFlags.EventCallback | AudioClientStreamFlags.AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY | AudioClientStreamFlags.AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM;
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ namespace NAudio.CoreAudioApi
     /// AUDCLNT_STREAMFLAGS
     /// </summary>
     [Flags]
-    public enum AudioClientStreamFlags
+    public enum AudioClientStreamFlags : uint
     {
         /// <summary>
         /// None
@@ -28,5 +28,12 @@ namespace NAudio.CoreAudioApi
         /// AUDCLNT_STREAMFLAGS_NOPERSIST     
         /// </summary>
         NoPersist = 0x00080000,
+        /// <summary>
+        /// AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY     
+        /// </summary>
+        AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY = 0x08000000,
+        /// AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM     
+        /// </summary>
+        AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM = 0x80000000,
     }
 }
